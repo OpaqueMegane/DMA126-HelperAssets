@@ -17,11 +17,6 @@ public class AnimatorHelper126 : MonoBehaviour
         }
     }
 
-    public void AndAnotherThing()
-    {
-        Debug.Log("Not actually useful");
-    }
-
     /// <summary>
     /// Wrapper for Animator.SetBool that works with UIButtons, TriggerZones, etc...
     /// </summary>
