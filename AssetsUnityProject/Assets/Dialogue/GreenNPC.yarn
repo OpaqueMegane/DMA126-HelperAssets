@@ -1,0 +1,18 @@
+﻿title: GreenNPC
+---
+I can do stuff to the world with yarn commands. 
+-> Make blue big
+	AAAAAAA.....
+	<<wait 1>>
+	CHOO!
+	(dramatic pause courtesy of 'wait' command)
+	<<DoCustomCommand126 BlueNPC makeBig>>
+-> Send me into the sky
+	<<DoCustomCommand126 Player moveToSky>>
+-> put a sticker on the screen <<if $sticker_on == false>>
+	<<DoCustomCommand126 AnnoyingScreenSticker on>>
+	<<set $sticker_on to true>>
+-> Wow, this is awful, turn off the sticker, please.<<if $sticker_on == true>>
+	<<DoCustomCommand126 AnnoyingScreenSticker off>>
+	<<set $sticker_on to false>>
+===

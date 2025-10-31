@@ -1,0 +1,26 @@
+﻿title: RedNPC
+---
+Hello.
+<<if visited("RedNPC") == false>>
+We're meeeting for the first time.
+<<endif>>
+
+-> What's your name? <<if visited("RedNPC") == false>>
+    I'm red.
+    <<set $asked_red_name to true>>
+-> Hello, I'm yellow
+    Nice to meet you.
+    <<detour RedNPCExtras>>
+-> Hi, sorry, I'm in a bit of a hurry.
+    Oh, no problem.
+
+
+Well, anyways, cya.
+===
+
+title: RedNPC_mystified
+---
+???
+...
+.
+===

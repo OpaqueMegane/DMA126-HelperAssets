@@ -1,0 +1,15 @@
+﻿title: WhiteNPC
+---
+<<if visited_count("WhiteNPC") == 0>>
+I have amnesia. Can you tell me what my name is?
+-> It's Allegra
+	<<set $white_npc_name to "Allegra">>
+-> It's Susumu
+	<<set $white_npc_name to "Susumu">>
+-> It's Jun
+	<<set $white_npc_name to "Jun">>
+Great thanks!
+<<endif>>
+
+I guess my name was {$white_npc_name}.
+===

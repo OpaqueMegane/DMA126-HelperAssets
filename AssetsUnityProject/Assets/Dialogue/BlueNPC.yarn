@@ -1,0 +1,15 @@
+﻿title: BlueNPC
+---
+I'm the blue one.
+
+No choices.
+
+Just TEXT.
+
+<<if $gold > 0>>
+    Woah! Where'd you get that gold?
+    What!? Just right there?
+<<else>>
+    I heard there was gold around, somewhere.
+<<endif>>
+===

@@ -1,0 +1,9 @@
+﻿title: CyanNPC
+---
+I'm just doing an action.
+
+<<DoCustomCommand126 SecretCube appear>>
+<<wait 1>>
+and now you don't!
+<<DoCustomCommand126 SecretCube disappear>>
+===
