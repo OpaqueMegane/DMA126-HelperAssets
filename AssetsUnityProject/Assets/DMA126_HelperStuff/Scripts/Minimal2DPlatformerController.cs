@@ -1,14 +1,10 @@
-/*
- This is the version modified in class to play animations
- */
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Minimal2DPlatformerController : MonoBehaviour
 {
-    public float moveHorizontal;
+    private float moveHorizontal;
     private float moveVertical;
     private Vector2 currentVelocity;
     [SerializeField]
@@ -25,9 +21,7 @@ public class Minimal2DPlatformerController : MonoBehaviour
 
     public KeyCode jumpKey = KeyCode.W;
 
-    public float horizontalStopStrength = .5f;
-
-    public Animator animator;
+    public float horizontalStopStrength = 4f;
 
     // Start is called before the first frame update
     void Start()
@@ -54,16 +48,6 @@ public class Minimal2DPlatformerController : MonoBehaviour
             finalVelo.x = Mathf.MoveTowards(rb.velocity.x, 0, Time.deltaTime * horizontalStopStrength);
         }
 
-        animator.SetBool("grounded", grounded);
-
-        if (Mathf.Abs(moveHorizontal) > .1f && grounded)
-        {
-            animator.SetBool("moving", true);
-        }
-        else
-        {
-            animator.SetBool("moving", false);
-        }
 
         rb.velocity = finalVelo;
         this.currentVelocity = this.rb.velocity;

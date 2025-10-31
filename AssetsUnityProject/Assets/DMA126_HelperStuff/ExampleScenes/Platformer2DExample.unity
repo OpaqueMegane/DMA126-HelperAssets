@@ -2305,17 +2305,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 847840093053113241, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0
+      propertyPath: m_Size.x
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 847840093053113241, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
-      propertyPath: m_Color.g
-      value: 0.9729073
+      propertyPath: m_Size.y
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 847840093053113241, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
-      propertyPath: m_Color.r
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1037921289056260045, guid: 78306f7c6ca22714282d1a4b928be822,
