@@ -727,6 +727,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 847840093053113241, guid: 8ce21d4888d99774dbe2b36df47974d3,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1037921289056260045, guid: 8ce21d4888d99774dbe2b36df47974d3,
         type: 3}
       propertyPath: m_LocalPosition.x

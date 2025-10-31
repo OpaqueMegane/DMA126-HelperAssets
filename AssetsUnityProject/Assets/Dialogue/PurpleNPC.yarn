@@ -1,0 +1,9 @@
+﻿title: PurpleNPC
+---
+I'm excuting yarn command, that calls the custom Yarn command 'exampleYarnCommand' on the game object name 'pink-thing', right here next to me.
+
+Here it comes!
+<<exampleYarnCommand pink-thing 123 "abc">>
+
+I'm doing this with a custom script. See green NPC if you want to see a no-code solution.
+===

@@ -1,8 +1,9 @@
 ﻿title: CyanNPC
 ---
-I'm just doing an action.
+I'm just doing a yarn command.
 
 <<DoCustomCommand126 SecretCube appear>>
+Now you see it! (cube on my head)
 <<wait 1>>
 and now you don't!
 <<DoCustomCommand126 SecretCube disappear>>
