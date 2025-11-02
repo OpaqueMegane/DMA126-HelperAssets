@@ -11,9 +11,14 @@ public class YarnMultisceneHelper : MonoBehaviour
     void Start()
     {
         SceneManager.sceneLoaded += sceneLoaded;
+        findADestroyRedundantEventSystems();
     }
 
     private void sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        findADestroyRedundantEventSystems();
+    }
+    private void findADestroyRedundantEventSystems()
     {
         if (!destroyRedundantEventSystems)
         {
