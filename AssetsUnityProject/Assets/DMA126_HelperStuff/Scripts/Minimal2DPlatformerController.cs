@@ -70,18 +70,18 @@ public class Minimal2DPlatformerController : MonoBehaviour
     }
 
     float maxSlope = 45;
+    RaycastHit2D[] raycastResults = new RaycastHit2D[16];
     void GroundCheck()
     {
-        var hit = Physics2D.CapsuleCast(this.transform.position, groundCheckSize, CapsuleDirection2D.Horizontal, 0, Vector2.down,  groundCastDistance, standableLayers);
-        if (hit.collider != null)
+        int nHits = Physics2D.CapsuleCastNonAlloc(this.transform.position, groundCheckSize, CapsuleDirection2D.Horizontal, 0, Vector2.down, raycastResults,  groundCastDistance,  standableLayers);
+        grounded = false;
+        for (int i =0;i < nHits; i++)
         {
-            grounded = true;
-            grounded = Vector2.Angle(Vector2.up, hit.normal) <=maxSlope;
+            var hit = raycastResults[i];
+            grounded |= Vector2.Angle(Vector2.up, hit.normal) <= maxSlope;
+            if (grounded) break;
         }
-        else
-        {
-            grounded = false;
-        }
+
     }
 
     public float groundCastDistance = .5f;
