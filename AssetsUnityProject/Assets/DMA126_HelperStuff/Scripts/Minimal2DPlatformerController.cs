@@ -73,7 +73,8 @@ public class Minimal2DPlatformerController : MonoBehaviour
     RaycastHit2D[] raycastResults = new RaycastHit2D[16];
     void GroundCheck()
     {
-        int nHits = Physics2D.CapsuleCastNonAlloc(this.transform.position, groundCheckSize, CapsuleDirection2D.Horizontal, 0, Vector2.down, raycastResults,  groundCastDistance,  standableLayers);
+        //int nHits = Physics2D.CapsuleCastNonAlloc(this.transform.position, groundCheckSize, CapsuleDirection2D.Horizontal, 0, Vector2.down, raycastResults,  groundCastDistance,  standableLayers);
+        int nHits = Physics2D.BoxCastNonAlloc(this.transform.position + new Vector3(0, -castStartHeight), groundCheckSize, 0, Vector2.down, raycastResults,  groundCastDistance,  standableLayers);
         grounded = false;
         for (int i =0;i < nHits; i++)
         {
@@ -86,14 +87,12 @@ public class Minimal2DPlatformerController : MonoBehaviour
 
     public float groundCastDistance = .5f;
     public Vector2 groundCheckSize = new Vector2(.1f, .1f);
+    public float castStartHeight = .2f;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(this.transform.position + new Vector3((groundCheckSize.x -groundCheckSize.y) * .5f, -groundCastDistance, 0), groundCheckSize.y);
-        Gizmos.DrawWireSphere(this.transform.position + new Vector3(-(groundCheckSize.x - groundCheckSize.y) * .5f, -groundCastDistance, 0), groundCheckSize.y);
-        Gizmos.DrawLine(
-            this.transform.position + new Vector3(-(groundCheckSize.x - groundCheckSize.y) * .5f, -groundCastDistance - groundCheckSize.y, 0), 
-            this.transform.position + new Vector3((groundCheckSize.x - groundCheckSize.y) * .5f, -groundCastDistance - groundCheckSize.y, 0));
+        Gizmos.DrawWireCube(this.transform.position + Vector3.down * castStartHeight, groundCheckSize);
+        Gizmos.DrawWireCube(this.transform.position + (Vector3.down * (castStartHeight + this.groundCastDistance)), groundCheckSize);
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
