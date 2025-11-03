@@ -312,7 +312,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.9
+  m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -370,13 +370,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203844586}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3612727, y: -0.3763102, z: -0.0978027, w: 0.8475302}
+  m_LocalRotation: {x: 0.50766647, y: -0.33152664, z: 0.7640994, w: 0.22026576}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 32.6, y: -57.25, z: -31.301}
+  m_LocalEulerAnglesHint: {x: 133.09, y: -112.8, z: 0}
 --- !u!1 &222579366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1568,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 56243026726298601, guid: 27b464b415bf75e4fa90986fdde841e4,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2059478701860829935, guid: 27b464b415bf75e4fa90986fdde841e4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1622,6 +1627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CardSetup-PLAYER
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273228466668010403, guid: 27b464b415bf75e4fa90986fdde841e4,
+        type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
