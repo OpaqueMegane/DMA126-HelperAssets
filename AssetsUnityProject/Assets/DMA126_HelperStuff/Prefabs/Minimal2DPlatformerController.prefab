@@ -141,8 +141,9 @@ MonoBehaviour:
     m_Bits: 51
   jumpKey: 119
   horizontalStopStrength: 4
-  groundCastDistance: -0
-  groundCheckSize: {x: 0.33, y: 0.08}
+  groundCastDistance: 0.1
+  groundCheckSize: {x: 0.45, y: 0.1}
+  castStartHeight: -0.1
 --- !u!114 &4609135176085805696
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2368,11 +2368,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1726014999537238827, guid: 78306f7c6ca22714282d1a4b928be822,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4609135176085805696, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
       propertyPath: _interactionText
       value: 
       objectReference: {fileID: 1325702632}
+    - target: {fileID: 8541129382938488484, guid: 78306f7c6ca22714282d1a4b928be822,
+        type: 3}
+      propertyPath: castStartHeight
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8541129382938488484, guid: 78306f7c6ca22714282d1a4b928be822,
+        type: 3}
+      propertyPath: groundCastDistance
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8865555536055070750, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
       propertyPath: m_Name
