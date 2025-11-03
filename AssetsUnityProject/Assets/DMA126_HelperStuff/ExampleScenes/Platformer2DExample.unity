@@ -2293,16 +2293,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 385216900667580109, guid: 78306f7c6ca22714282d1a4b928be822,
-        type: 3}
-      propertyPath: onDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 385216900667580109, guid: 78306f7c6ca22714282d1a4b928be822,
-        type: 3}
-      propertyPath: onDialogueStart.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 847840093053113241, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
       propertyPath: m_Size.x
@@ -2368,26 +2358,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1726014999537238827, guid: 78306f7c6ca22714282d1a4b928be822,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4609135176085805696, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
       propertyPath: _interactionText
       value: 
       objectReference: {fileID: 1325702632}
-    - target: {fileID: 8541129382938488484, guid: 78306f7c6ca22714282d1a4b928be822,
-        type: 3}
-      propertyPath: castStartHeight
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8541129382938488484, guid: 78306f7c6ca22714282d1a4b928be822,
-        type: 3}
-      propertyPath: groundCastDistance
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8865555536055070750, guid: 78306f7c6ca22714282d1a4b928be822,
         type: 3}
       propertyPath: m_Name
