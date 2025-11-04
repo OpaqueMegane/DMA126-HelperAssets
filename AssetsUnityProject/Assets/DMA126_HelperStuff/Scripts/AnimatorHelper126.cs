@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class AnimatorHelper126 : MonoBehaviour
 {
@@ -85,5 +86,25 @@ public class AnimatorHelper126 : MonoBehaviour
         {
             Debug.LogException(e);
         }
+    }
+
+    [SerializeField] List<NamedAnimationEvent> namedAnimationEvents = new();
+
+    public void CallNamedEvent(string eventId)
+    {
+        foreach(var evt in namedAnimationEvents)
+        {
+            if (evt.id == eventId)
+            {
+                evt.action.Invoke();
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class NamedAnimationEvent
+    {
+        public string id;
+        public UnityEvent action;
     }
 }
