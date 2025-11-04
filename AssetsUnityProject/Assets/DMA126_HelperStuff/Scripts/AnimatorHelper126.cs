@@ -90,6 +90,11 @@ public class AnimatorHelper126 : MonoBehaviour
 
     [SerializeField] List<NamedAnimationEvent> namedAnimationEvents = new();
 
+    public void PlaySound(AudioClip soundToPlay)
+    {
+        AudioSource.PlayClipAtPoint(soundToPlay, Camera.main.transform.position);
+    }
+
     public void CallNamedEvent(string eventId)
     {
         foreach(var evt in namedAnimationEvents)
