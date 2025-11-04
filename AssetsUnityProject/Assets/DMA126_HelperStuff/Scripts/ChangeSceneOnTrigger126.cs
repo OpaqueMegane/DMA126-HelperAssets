@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeSceneOnTrigger : MonoBehaviour
+public class ChangeSceneOnTrigger126 : MonoBehaviour
 {
     public string sceneName = "GameOver";
     public bool disableOnTriggerEnter = false;
