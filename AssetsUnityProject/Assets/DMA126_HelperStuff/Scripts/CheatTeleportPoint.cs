@@ -72,6 +72,9 @@ public class CheatTeleportPoint : MonoBehaviour
         bool showGUI = false;
         GUIStyle textWrapping;
 
+        bool cursorVisible;
+        CursorLockMode cursorLockMode;
+
         private void Awake()
         {
 
@@ -81,6 +84,19 @@ public class CheatTeleportPoint : MonoBehaviour
             if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && Input.GetKeyDown(KeyCode.C))
             {
                 showGUI = !showGUI;
+                if (showGUI)
+                {
+                    this.cursorVisible = Cursor.visible;
+                    this.cursorLockMode = Cursor.lockState;
+                    
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                else
+                {
+                    Cursor.visible = this.cursorVisible;
+                    Cursor.lockState = this.cursorLockMode;
+                }
             }
         }
 

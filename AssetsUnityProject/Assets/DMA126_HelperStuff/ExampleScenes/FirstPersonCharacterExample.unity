@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5567235a5573ac94b92e95d15a77acb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingToTeleportHere: {fileID: 0}
+  thingToTeleportHere: {fileID: 451168050}
 --- !u!1 &205408470
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5567235a5573ac94b92e95d15a77acb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thingToTeleportHere: {fileID: 0}
+  thingToTeleportHere: {fileID: 451168050}
 --- !u!1 &354045924
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +823,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1740968694}
   m_SourcePrefab: {fileID: 100100000, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+--- !u!4 &451168050 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 451168049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &454067406
 GameObject:
   m_ObjectHideFlags: 0
