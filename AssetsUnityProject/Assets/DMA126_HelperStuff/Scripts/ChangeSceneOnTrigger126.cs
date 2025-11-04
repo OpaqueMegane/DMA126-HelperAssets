@@ -7,8 +7,8 @@ public class ChangeSceneOnTrigger126 : MonoBehaviour
 {
     public string sceneName = "GameOver";
     public bool disableOnTriggerEnter = false;
-    public enum SceneChangeMode { UnloadOthers, DeactivatateOthers}
-    public SceneChangeMode sceneChangeMode = SceneChangeMode.UnloadOthers;
+    public enum SceneChangeMode { Default, Gentle, GentleAndReloadDestination}
+    public SceneChangeMode sceneChangeMode = SceneChangeMode.Default;
 
     void OnTriggerEnter(Collider other)
     {
@@ -27,13 +27,17 @@ public class ChangeSceneOnTrigger126 : MonoBehaviour
 
     public void ChangeScenes()
     {
-        if (sceneChangeMode == SceneChangeMode.UnloadOthers)
+        if (sceneChangeMode == SceneChangeMode.Default)
         {
             SceneManager.LoadScene(sceneName);
         }
-        else
+        else if (sceneChangeMode == SceneChangeMode.Gentle)
         {
-            SceneUtils126.LoadOrUnpauseScene(sceneName);
+            SceneUtils126.ChangeScenesGentle(sceneName);
+        }
+        else if (sceneChangeMode == SceneChangeMode.GentleAndReloadDestination)
+        {
+            SceneUtils126.ChangeScenesGentleAndReloadDestinationScene(sceneName);
         }
     }
 }

@@ -17,12 +17,6 @@ public static class SceneUtils126
         _deactivatedScenes.Remove(scene.name);
     }
 
-
-    public static void ChangeScenesGentleAndReloadDestinationScene(string destinationSceneName)
-    {
-        ChangeScenesGentleFull(destinationSceneName, true);
-    }
-
     public static void LoadOrUnpauseScene(string destinationSceneName)
     {
         ChangeScenesGentleFull(destinationSceneName, false);
@@ -31,6 +25,11 @@ public static class SceneUtils126
     public static void ChangeScenesGentle(string destinationSceneName)
     {
         ChangeScenesGentleFull(destinationSceneName, false);
+    }
+
+    public static void ChangeScenesGentleAndReloadDestinationScene(string destinationSceneName)
+    {
+        ChangeScenesGentleFull(destinationSceneName, true);
     }
 
     static void ChangeScenesGentleFull(string destinationSceneName, bool reloadDestScene)
@@ -45,12 +44,13 @@ public static class SceneUtils126
                 {
                     DeactivateScene(s);
                 }
+            }
 
-                if (reloadDestScene && s.name == destinationSceneName)
-                {
-                    DeactivateScene(s);
-                    SceneManager.UnloadSceneAsync(s);
-                }
+            //Force reload the destination scene if necessary
+            if (reloadDestScene && s.name == destinationSceneName)
+            {
+                DeactivateScene(s, true);
+                _deactivatedScenes.Remove(destinationSceneName);
             }
         }
 
