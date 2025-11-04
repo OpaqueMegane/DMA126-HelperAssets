@@ -17,47 +17,60 @@ public static class SceneUtils126
         _deactivatedScenes.Remove(scene.name);
     }
 
-    //  SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
-    public static void ReloadScene(string sceneName)
+
+    public static void ChangeScenesGentleAndReloadDestinationScene(string destinationSceneName)
     {
-        var targScene = SceneManager.GetSceneByName(sceneName);
-        if (targScene.IsValid() && targScene.isLoaded)
-        {
-            DeactivateScene(targScene, true);
-        }
-        LoadOrUnpauseScene(sceneName);
+        ChangeScenesGentleFull(destinationSceneName, true);
     }
 
-    public static void LoadOrUnpauseScene(string sceneName)
+    public static void LoadOrUnpauseScene(string destinationSceneName)
+    {
+        ChangeScenesGentleFull(destinationSceneName, false);
+    }
+
+    public static void ChangeScenesGentle(string destinationSceneName)
+    {
+        ChangeScenesGentleFull(destinationSceneName, false);
+    }
+
+    static void ChangeScenesGentleFull(string destinationSceneName, bool reloadDestScene)
     {
         //Deactivate other scenes
         for (int i = 0; i < SceneManager.loadedSceneCount; i++)
         {
             var s = SceneManager.GetSceneAt(i);
-            if (s.isLoaded && s.name != sceneName && !_deactivatedScenes.ContainsKey(s.name))
+            if (s.isLoaded && !_deactivatedScenes.ContainsKey(s.name))
             {
-                DeactivateScene(s);
-                //SceneManager.UnloadSceneAsync(s);
+                if (s.name != destinationSceneName)
+                {
+                    DeactivateScene(s);
+                }
+
+                if (reloadDestScene && s.name == destinationSceneName)
+                {
+                    DeactivateScene(s);
+                    SceneManager.UnloadSceneAsync(s);
+                }
             }
         }
 
-        if (_deactivatedScenes.ContainsKey(sceneName))
+        if (_deactivatedScenes.ContainsKey(destinationSceneName))
         {
-            ReactivateScene(sceneName);
+            ReactivateScene(destinationSceneName);
         }
         else
         {
-            var targScene = SceneManager.GetSceneByName(sceneName);
+            var targScene = SceneManager.GetSceneByName(destinationSceneName);
             if (targScene.IsValid() && targScene.isLoaded)
             {
-                Debug.LogError($"Scene '{sceneName}' was already loaded??? ");
+                Debug.LogError($"Scene '{destinationSceneName}' was already loaded??? ");
                 return;
             }
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+            SceneManager.LoadScene(destinationSceneName, LoadSceneMode.Additive);
         }
     }
 
-    public static void DeactivateScene(Scene scene, bool unloadCompletely = false)
+    static void DeactivateScene(Scene scene, bool unloadCompletely = false)
     {
         if (!unloadCompletely)
         {
@@ -83,9 +96,9 @@ public static class SceneUtils126
         }
     }
 
-    public static void ReactivateScene(Scene scene) => ReactivateScene(scene.name);
+    static void ReactivateScene(Scene scene) => ReactivateScene(scene.name);
 
-    public static void ReactivateScene(string sceneName)
+    static void ReactivateScene(string sceneName)
     {
         if (_deactivatedScenes.ContainsKey(sceneName))
         {
