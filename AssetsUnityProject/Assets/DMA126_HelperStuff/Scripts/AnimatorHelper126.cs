@@ -92,7 +92,7 @@ public class AnimatorHelper126 : MonoBehaviour
 
     public void PlaySound(AudioClip soundToPlay)
     {
-        AudioSource.PlayClipAtPoint(soundToPlay, Camera.main.transform.position);
+        WastefulButResilientSoundPlayer.PlaySound(soundToPlay);
     }
 
     public void CallNamedEvent(string eventId)
@@ -112,4 +112,34 @@ public class AnimatorHelper126 : MonoBehaviour
         public string id;
         public UnityEvent action;
     }
+
+    public class  WastefulButResilientSoundPlayer : MonoBehaviour
+    {
+        public static WastefulButResilientSoundPlayer PlaySound(AudioClip clip)
+        {
+            if (clip == null) return null;
+            var player = new GameObject().AddComponent<WastefulButResilientSoundPlayer>();
+            player.StartCoroutine(player.wastefulSoundPlay(clip));    
+            return player;
+            
+        }
+
+        IEnumerator wastefulSoundPlay(AudioClip clip)
+        {
+            var soundPlayer = this.gameObject.AddComponent<AudioSource>();
+            soundPlayer.spatialBlend = 0; //make 2D
+            DontDestroyOnLoad(this.gameObject);
+            soundPlayer.clip = clip;
+            soundPlayer.Play();
+            while (soundPlayer.isPlaying)
+            {
+                yield return null;
+            }
+
+            yield return null;
+            Destroy(soundPlayer.gameObject);
+        }
+    }
+
+
 }
