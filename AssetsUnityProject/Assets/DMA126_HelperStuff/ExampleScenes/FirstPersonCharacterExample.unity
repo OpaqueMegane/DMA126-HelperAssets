@@ -2572,6 +2572,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3999364315779315395, guid: 5672f9d02c1a51a4281744acfccfea4b,
+        type: 3}
+      propertyPath: hurryUpLineKeyCode
+      value: 101
+      objectReference: {fileID: 0}
     - target: {fileID: 6766319972292013777, guid: 5672f9d02c1a51a4281744acfccfea4b,
         type: 3}
       propertyPath: m_Name
@@ -2586,6 +2591,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062337187678471082, guid: 5672f9d02c1a51a4281744acfccfea4b,
+        type: 3}
+      propertyPath: m_SubmitButton
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062337187678471082, guid: 5672f9d02c1a51a4281744acfccfea4b,
+        type: 3}
+      propertyPath: m_SubmitKeyCode
+      value: 101
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
