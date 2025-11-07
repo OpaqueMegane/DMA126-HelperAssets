@@ -54,6 +54,7 @@ public class CheatTeleportPoint : MonoBehaviour
         }
 
         this.thingToTeleportHere.position = this.transform.position;
+        this.thingToTeleportHere.rotation = this.transform.rotation;
 
         if (rb != null && !rb.isKinematic)
         {
