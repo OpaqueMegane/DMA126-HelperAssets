@@ -24,13 +24,7 @@ public class Teleporter : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            CharacterController cc = other.GetComponent<CharacterController>();
-            bool needCCReenable = false;
-            if (cc != null && cc.enabled)
-            {
-                needCCReenable = true;
-                cc.enabled = false;
-            }
+
             other.gameObject.transform.position = destination.position;
             if (setRotation)
             {
@@ -47,11 +41,7 @@ public class Teleporter : MonoBehaviour
                 }
             }
 
-            if (needCCReenable)
-            {
-                cc.enabled = true;
-            }
-    
+            Physics.SyncTransforms(); //w/o this, objects with CharacterControllers won't move.
         }
     }
 

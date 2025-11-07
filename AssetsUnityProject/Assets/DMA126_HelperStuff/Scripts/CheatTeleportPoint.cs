@@ -40,18 +40,6 @@ public class CheatTeleportPoint : MonoBehaviour
     void TeleportThing(Transform thing, Vector3 position)
     {
         var rb = thingToTeleportHere.GetComponent<Rigidbody>();
-        var cc = thingToTeleportHere.GetComponent<CharacterController>();
-        if (cc != null)
-        {
-            if (!cc.enabled)
-            {
-                cc = null; //don't reenable if already disabled
-            }
-            else
-            {
-                cc.enabled = false;
-            }
-        }
 
         this.thingToTeleportHere.position = this.transform.position;
         this.thingToTeleportHere.rotation = this.transform.rotation;
@@ -62,10 +50,7 @@ public class CheatTeleportPoint : MonoBehaviour
             rb.angularVelocity = Vector3.zero;
         }
 
-        if (cc != null)
-        {
-            cc.enabled = true;
-        }
+        Physics.SyncTransforms(); //needed for objects with CharacterControllers, or RigidBodies
     }
 
     public class GUIDrawer : MonoBehaviour
