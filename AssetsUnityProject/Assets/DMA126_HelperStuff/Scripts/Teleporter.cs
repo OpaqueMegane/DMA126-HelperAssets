@@ -8,6 +8,8 @@ public class Teleporter : MonoBehaviour
     
     public bool preserveMomentum = false;
 
+    public bool setRotation = true;
+
     void Start()
     {
         
@@ -30,6 +32,10 @@ public class Teleporter : MonoBehaviour
                 cc.enabled = false;
             }
             other.gameObject.transform.position = destination.position;
+            if (setRotation)
+            {
+                other.gameObject.transform.rotation = destination.rotation;
+            }
 
             if (preserveMomentum == false)
             {
