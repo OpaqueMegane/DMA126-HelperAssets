@@ -160,13 +160,28 @@ namespace NaughtyCharacter
             _controlRotation = new Vector2(pitchAngle, yawAngle);
         }
 
+        public Vector3 normal = Vector3.up;
         private bool CheckGrounded()
         {
             Vector3 spherePosition = transform.position;
-            spherePosition.y = transform.position.y + GroundSettings.SphereCastRadius - GroundSettings.SphereCastDistance;
-            bool isGrounded = Physics.CheckSphere(spherePosition, GroundSettings.SphereCastRadius, GroundSettings.GroundLayers, QueryTriggerInteraction.Ignore);
+            
+            //spherePosition.y = transform.position.y + GroundSettings.SphereCastRadius - GroundSettings.SphereCastDistance;
+            spherePosition.y = transform.position.y + GroundSettings.SphereCastRadius;
+            
+            bool isGrounded = 
+                //Physics.CheckSphere(spherePosition, GroundSettings.SphereCastRadius, GroundSettings.GroundLayers, QueryTriggerInteraction.Ignore);
+                Physics.SphereCast(new Ray(spherePosition, new Vector3(0,-1,0)), GroundSettings.SphereCastRadius, out var hit, GroundSettings.SphereCastDistance, GroundSettings.GroundLayers, QueryTriggerInteraction.Ignore);
 
-            return isGrounded;
+            if (isGrounded)
+            {
+                normal = hit.normal;
+            }
+            else
+            {
+                normal = Vector3.up;
+            }
+
+                return isGrounded;
         }
 
         private void UpdateGrounded()
