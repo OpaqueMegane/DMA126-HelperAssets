@@ -29,7 +29,9 @@ public class MovingPlatform : TriggerTrackerBase
             var diffRot = Quaternion.Inverse(lastRotation) * this.transform.rotation;
             Vector3 finalDestPos = this.transform.position + diffRot * diffToPlayer;
             var cc = currentTouchingPlayerCollider as CharacterController;
-            
+            var safeRotation = Quaternion.Euler(0, diffRot.eulerAngles.y, 0);
+            currentTouchingPlayerCollider.transform.rotation *= safeRotation;
+
             if (cc == null)
             {
                 currentTouchingPlayerCollider.transform.position = finalDestPos;
@@ -37,24 +39,7 @@ public class MovingPlatform : TriggerTrackerBase
             else
             {
                 cc.Move(finalDestPos - cc.transform.position);
-                //if (cc.enabled)
-                //{
-                //    currentTouchingPlayerCollider.enabled = false;
-                //}
-                //else
-                //{
-                //    cc = null;
-                //}
-
             }
-
-   
-            
-            //if (cc != null)
-            //{
-            //    cc.enabled = true;
-            //}
-
         }
 
         lastPosition = transform.position;
