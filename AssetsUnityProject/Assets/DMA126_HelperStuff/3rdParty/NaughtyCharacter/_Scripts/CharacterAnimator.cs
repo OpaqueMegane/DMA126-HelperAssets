@@ -16,7 +16,7 @@ namespace NaughtyCharacter
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            _animator = GetComponentInChildren<Animator>();
             _character = GetComponent<Character>();
         }
 
